@@ -11,7 +11,17 @@ input {
   border: none;
 }
 
-textarea:focus,
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus
+input:-webkit-autofill {
+  border: 0;
+  -webkit-text-fill-color: #fff;
+  -webkit-box-shadow: 0 0 0px 1000px transparent inset;
+  transition: background-color 5000s ease-in-out 0s;
+  background: -webkit-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(0,174,255,0.04) 50%,rgba(255,255,255,0) 51%,rgba(0,174,255,0.03) 100%);
+}
+
 input:focus {
   border-color: transparent !important;
 }
@@ -29,19 +39,6 @@ input:focus:-ms-input-placeholder {
   color: transparent;
 }
 
-textarea:focus::-webkit-input-placeholder {
-  color: transparent;
-}
-textarea:focus:-moz-placeholder {
-  color: transparent;
-}
-textarea:focus::-moz-placeholder {
-  color: transparent;
-}
-textarea:focus:-ms-input-placeholder {
-  color: transparent;
-}
-
 input::-webkit-input-placeholder {
   color: #fff;
 }
@@ -52,19 +49,6 @@ input::-moz-placeholder {
   color: #fff;
 }
 input:-ms-input-placeholder {
-  color: #fff;
-}
-
-textarea::-webkit-input-placeholder {
-  color: #fff;
-}
-textarea:-moz-placeholder {
-  color: #fff;
-}
-textarea::-moz-placeholder {
-  color: #fff;
-}
-textarea:-ms-input-placeholder {
   color: #fff;
 }
 
@@ -95,7 +79,7 @@ button:hover {
   justify-content: space-between;
   border-radius: 10px;
   overflow: hidden;
-  padding: 55px 55px 37px 55px;
+  padding: 3rem;
   background: #9152f8;
   background: -webkit-linear-gradient(top, #7579ff, #b224ef);
   background: -o-linear-gradient(top, #7579ff, #b224ef);
@@ -117,7 +101,7 @@ form {
 
 .login-form-title {
   font-family: Poppins-Medium;
-  font-size: 2rem;
+  font-size: 1.8rem;
   color: #fff;
   line-height: 1.2;
   text-align: center;
@@ -128,7 +112,7 @@ form {
 .wrap-input {
   width: 80%;
   border-bottom: 2px solid rgba(255, 255, 255, 0.24);
-  margin-bottom: 30px;
+  margin-bottom: 5px;
 }
 
 input {
@@ -152,8 +136,9 @@ input {
   color: #555555;
   line-height: 1.2;
   padding: 0 15px;
+  margin-top: 1rem;
   min-width: 120px;
-  height: 50px;
+  height: 35px;
   border-radius: 25px;
   background: #9152f8;
   background: -webkit-linear-gradient(bottom, #B026F0, #ffffff);
@@ -201,3 +186,41 @@ input {
 }
 
 
+@media screen and (max-width: 768px) {
+  .wrap-login {
+    margin: 0 2rem;
+  }
+}
+
+
+@media screen and (max-width: 320px) {
+  #loginForm {
+    border-right: none;
+    margin-right: 0;
+    padding-right: 0;
+    margin-bottom: 2rem;
+  }
+  .wrap-login {
+    margin: 2rem 1rem;
+    padding: 1.5rem;
+    flex-direction: column;
+  }
+  .login-form-title {
+    font-size: 1rem;
+    line-height: 1;
+    margin-bottom: 0.8rem;
+  }
+  .wrap-input {
+    width: 100%;
+  }
+  input {
+    font-size: 1rem;
+    line-height: 1;
+    height: 20px;
+  }
+  .login-form-btn {
+    font-size: 0.8rem;
+    padding: 0 5px;
+    height: 25px;
+  }
+}

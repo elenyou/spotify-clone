@@ -29,14 +29,14 @@
 <body>
     <div class="register-container">
         <div class="wrap-login">
-            <form id="loginForm" action="register.php" method="POST">
+            <form id="loginForm" action="register.php" method="POST" autocomplete="off">
                 <h2 class="login-form-title">Login to your account</h2>
                 <div class="wrap-input">
                     <?php echo $account->getError(Constants::$loginFailed ); ?>
-                    <input id="loginUsername" name="loginUsername" type="text" placeholder="Username" required>
+                    <input id="loginUsername" name="loginUsername" type="text" placeholder="Username" autocomplete="off" required>
                 </div>
                 <div class="wrap-input">
-                    <input id="loginPassword" name="loginPassword" type="password" placeholder="Password" required>
+                    <input id="loginPassword" name="loginPassword" type="password" placeholder="Password" autocomplete="off" required>
                 </div>
                 <button class="login-form-btn" type="submit" name="loginButton">LOG IN</button>
             </form>
