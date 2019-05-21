@@ -25,15 +25,16 @@ function getInputValue($name)
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="assets/css/register.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="assets/js/register.js"></script>
-    <title>Welcome to Slotify!</title>
+    <title>Welcome to Spotify!</title>
 </head>
 
 <body>
 
-<!-- <?php
+<?php
 
 	if(isset($_POST['registerButton'])) {
 		echo '<script>
@@ -52,16 +53,24 @@ function getInputValue($name)
 			</script>';
 	}
 
-?> -->
+?> 
 
 
     <div class="register-container">
         <div class="wrap-login">
+            <div class="login-text">
+                <h1>Get great music, right now</h1>
+                <ul>
+                    <li><i class="far fa-check-circle"></i>Discover music you'll fall in love with</li>
+                    <li><i class="far fa-check-circle"></i>Create your own playlists</li>
+                    <li><i class="far fa-check-circle"></i>Follow artists to keep up to date</li>
+                </ul>
+            </div>
             <form id="loginForm" action="register.php" method="POST" autocomplete="off">
                 <h2 class="login-form-title">Login to your account</h2>
                 <div class="wrap-input">
                     <?php echo $account->getError(Constants::$loginFailed); ?>
-                    <input id="loginUsername" name="loginUsername" type="text" placeholder="Username" autocomplete="off" required>
+                    <input id="loginUsername" name="loginUsername" type="text" placeholder="Username" value="<?php getInputValue('username') ?>" autocomplete="off" required>
                 </div>
                 <div class="wrap-input">
                     <input id="loginPassword" name="loginPassword" type="password" placeholder="Password" autocomplete="off" required>
@@ -118,8 +127,8 @@ function getInputValue($name)
                 </div>
             </form>
         </div>
+       
     </div>
-
 </body>
 
 </html>
