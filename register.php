@@ -1,44 +1,76 @@
 <?php
-	include("includes/config.php");
-	include("includes/classes/Account.php");
-	include("includes/classes/Constants.php");
+include("includes/config.php");
+include("includes/classes/Account.php");
+include("includes/classes/Constants.php");
 
-	$account = new Account($con);
+$account = new Account($con);
 
-	include("includes/handlers/register-handler.php");
-	include("includes/handlers/login-handler.php");
+include("includes/handlers/register-handler.php");
+include("includes/handlers/login-handler.php");
 
-	function getInputValue($name) {
-		if(isset($_POST[$name])) {
-			echo $_POST[$name];
-		}
-	}
+function getInputValue($name)
+{
+    if (isset($_POST[$name])) {
+        echo $_POST[$name];
+    }
+}
 ?>
 
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="assets/css/register.css">
-	<title>Welcome to Slotify!</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="assets/js/register.js"></script>
+    <title>Welcome to Slotify!</title>
 </head>
+
 <body>
+
+<!-- <?php
+
+	if(isset($_POST['registerButton'])) {
+		echo '<script>
+				$(document).ready(function() {
+					$("#loginForm").hide();
+					$("#registerForm").show();
+				});
+			</script>';
+	}
+	else {
+		echo '<script>
+				$(document).ready(function() {
+					$("#loginForm").show();
+					$("#registerForm").hide();
+				});
+			</script>';
+	}
+
+?> -->
+
+
     <div class="register-container">
         <div class="wrap-login">
             <form id="loginForm" action="register.php" method="POST" autocomplete="off">
                 <h2 class="login-form-title">Login to your account</h2>
                 <div class="wrap-input">
-                    <?php echo $account->getError(Constants::$loginFailed ); ?>
+                    <?php echo $account->getError(Constants::$loginFailed); ?>
                     <input id="loginUsername" name="loginUsername" type="text" placeholder="Username" autocomplete="off" required>
                 </div>
                 <div class="wrap-input">
                     <input id="loginPassword" name="loginPassword" type="password" placeholder="Password" autocomplete="off" required>
                 </div>
                 <button class="login-form-btn" type="submit" name="loginButton">LOG IN</button>
+
+                <div class="hasAccountText">
+                    <span id="hideLogin">Don't have an account yet? Signup here.</span>
+                </div>
             </form>
             <form id="registerForm" action="register.php" method="POST">
                 <h2 class="login-form-title">Create your free account</h2>
@@ -79,13 +111,15 @@
                 <div class="wrap-input">
                     <input id="password2" name="password2" type="password" placeholder="Confirm password" required>
                 </div>
-
                 <button class="login-form-btn" type="submit" name="registerButton">SIGN UP</button>
 
+                <div class="hasAccountText">
+                    <span id="hideRegister">Already have an account? Log in here.</span>
+                </div>
             </form>
         </div>
     </div>
 
-
 </body>
+
 </html>

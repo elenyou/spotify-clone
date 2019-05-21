@@ -11,7 +11,7 @@ input {
   border: none;
 }
 
-input:-webkit-autofill,
+/* input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus
 input:-webkit-autofill {
@@ -20,6 +20,18 @@ input:-webkit-autofill {
   -webkit-box-shadow: 0 0 0px 1000px transparent inset;
   transition: background-color 5000s ease-in-out 0s;
   background: -webkit-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(0,174,255,0.04) 50%,rgba(255,255,255,0) 51%,rgba(0,174,255,0.03) 100%);
+} */
+
+@-webkit-keyframes autofill {
+  to {
+      color: #fff;
+      background: transparent;
+  }
+}
+
+input:-webkit-autofill {
+  -webkit-animation-name: autofill;
+  -webkit-animation-fill-mode: both;
 }
 
 input:focus {
@@ -76,6 +88,7 @@ button:hover {
 
 .wrap-login {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   border-radius: 10px;
   overflow: hidden;
@@ -87,11 +100,6 @@ button:hover {
   background: linear-gradient(top, #7579ff, #b224ef);
 }
 
-#loginForm {
-  margin-right: 2rem;
-  padding-right: 2rem;
-  border-right: 2px solid rgba(255, 255, 255, 0.24);
-}
 
 form {
   display: flex;
@@ -185,6 +193,15 @@ input {
   color: #fff;
 }
 
+.hasAccountText span {
+  color: #fff;
+  font-size: 12px;
+}
+
+.hasAccountText {
+	text-align: center;
+}
+
 
 @media screen and (max-width: 768px) {
   .wrap-login {
@@ -194,16 +211,9 @@ input {
 
 
 @media screen and (max-width: 320px) {
-  #loginForm {
-    border-right: none;
-    margin-right: 0;
-    padding-right: 0;
-    margin-bottom: 2rem;
-  }
   .wrap-login {
     margin: 2rem 1rem;
     padding: 1.5rem;
-    flex-direction: column;
   }
   .login-form-title {
     font-size: 1rem;
