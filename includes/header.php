@@ -1,14 +1,17 @@
 <?php
-
 include("includes/config.php");
+include("includes/classes/User.php");
 include("includes/classes/Artist.php");
 include("includes/classes/Album.php");
 include("includes/classes/Song.php");
+include("includes/classes/Playlist.php");
 
 //session_destroy(); for LOGOUT
 
 if(isset($_SESSION['userLoggedIn'])) {
-	$userLoggedIn = $_SESSION['userLoggedIn'];
+	$userLoggedIn = new User($con, $_SESSION['userLoggedIn']);
+	$username = $userLoggedIn->getUsername();
+	echo "<script>userLoggedIn = '$username';</script>";
 }
 else {
 	header("Location: register.php");
@@ -27,6 +30,8 @@ else {
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
         integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="assets/js/script.js"></script>
     <title>Welcome to Spotify!</title>
 </head>
 
@@ -34,7 +39,7 @@ else {
 
     <div id="mainContainer">
         <div id="topContainer">
-            <?php include('includes/navbar.php'); ?>
+            <?php include("includes/navbar.php"); ?>
 
             <div id="mainViewContainer">
                 <div id="mainContent">

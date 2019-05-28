@@ -1,27 +1,27 @@
-
-
 <div id="navBarContainer">
     <nav class="navBar">
-        <a href="index.php" class="logo">
+        <span role="link" tabindex="0" onclick="openPage('index.php')" class="logo" >
             <i class="fab fa-spotify"></i>
-        </a>
+        </span>
         <div class="group">
             <div class="navItem">
-                <a href="search.php" class="navItemLink">Search
+                <span role='link' tabindex='0' onclick='openPage("search.php")' class="navItemLink">Search
                     <i class="fas fa-search"></i>
-                </a>
+                </span>
             </div>
         </div>
         <div class="group">
-            <div class="navItem">
-                <a href="browse.php" class="navItemLink">Browse</a>
-            </div>
-            <div class="navItem">
-                <a href="yourMusic.php" class="navItemLink">Your Music</a>
-            </div>
-            <div class="navItem">
-                <a href="profile.php" class="navItemLink">Reece Kenney</a>
-            </div>
-        </div>
+			<div class="navItem">
+				<span role="link" tabindex="0" onclick="openPage('browse.php')" class="navItemLink">Browse</span>
+			</div>
+
+			<div class="navItem">
+				<span role="link" tabindex="0" onclick="openPage('yourMusic.php')" class="navItemLink">Your Music</span>
+			</div>
+
+			<div class="navItem">
+				<span role="link" tabindex="0" onclick="openPage('settings.php')" class="navItemLink"><?php echo $userLoggedIn->getFirstAndLastName(); ?></span>
+			</div>
+		</div>
     </nav>
 </div>
